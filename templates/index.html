@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Sales Prediction</title>
+</head>
+
+<body style="background-image: linear-gradient( 135deg, #00c9ff 10%, #92fe9d 100%);height: 100vh;margin: 0;background-repeat: no-repeat;">
+        <nav class="navbar sticky-top navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">SALES PREDICTION APPLICATION</a>
+        </nav>
+        <div class="container">
+            <p style="font-weight:bold;margin-top: 1%;">This is a Simple Application which can predict the sales value, given amount spent on advertising through different mediums like TV, Radio, Newspaper.</p>
+            <h3>Enter the amount spent in thousands:</h3>
+            <form action="{{ url_for('predict')}}" method="POST">
+                <div class="form-group">
+                    <label for="TV">TV</label>
+                    <input type="number" name="tv" class="form-control" placeholder="Enter amount spent  on TV" onkeypress="javascript:return isNumber(event)">
+                </div>
+                <div class="form-group">
+                    <label for="radio">Radio</label>
+                    <input type="number" name="radio" class="form-control" placeholder="Enter amount spent  on Radio" onkeypress="javascript:return isNumber(event)">
+                </div>
+                <div class="form-group">
+                    <label for="newspaper">Newspaper</label>
+                    <input type="number" name="newspaper" class="form-control" placeholder="Enter amount spent  on Newspaper" onkeypress="javascript:return isNumber(event)">
+                </div>
+                <button type="submit" class="btn btn-danger">PREDICT</button>
+                <button type="submit" class="btn btn-warning"> <a href="/" style="text-decoration: none; color: #fff;"> RESET </a></button>
+
+            </form>
+            <div class="output" style="background-color:rgba(0, 0, 0, 0.5);padding: 1%; border-radius: 5px;margin-top: 1%;color: #fff;">
+                <p style="text-align: center;font-weight: 500;font-size: 1.6rem">PREDICTED SALES VALUE IS: <span>{{ prediction }}</span> </p>
+            </div>
+        </div>
+        <div style="text-align: center;margin-top: 2%;">
+        <h5>CREATED BY UTKARSH KUMAR</h5> 
+        </div>
+    <!-- Optional JavaScript -->
+    <script>
+        // WRITE THE VALIDATION SCRIPT.
+        function isNumber(evt) {
+            var iKeyCode = (evt.which) ? evt.which : evt.keyCode
+            if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
+                return false;
+    
+            return true;
+        }    
+    </script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
